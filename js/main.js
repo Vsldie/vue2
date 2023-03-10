@@ -26,6 +26,7 @@ Vue.component('column', {
             column_3: [],
             errors: [],
         }
+
     },
     mounted() {
         eventBus.$on('addColumn_1', ColumnCard => {
@@ -53,7 +54,6 @@ Vue.component('column', {
             this.column_2.splice(this.column_2.indexOf(ColumnCard), 1)
 
         })
-
     }
 })
 
@@ -136,12 +136,15 @@ Vue.component('column_1', {
             <div class="column column_one">
                 <div class="card" v-for="card in column_1">
                 <h3>{{ card.name }}</h3>
-                    <div class="tasks" v-for="task in card.points"
+                    <ul class="tasks" v-for="task in card.points"
                         v-if="task.name != null"
                         @click="TaskCompleted(card, task)"
                         :class="{completed: task.completed}">
+                        <li>
                         {{ task.name }}
-                    </div>
+                        </li>
+                    </ul>
+                    
                 </div>
             </div>
         </section>
@@ -172,7 +175,7 @@ Vue.component('column_1', {
                 eventBus.$emit('addColumn_2', ColumnCard)
                 this.column_1.splice(this.column_1.indexOf(ColumnCard), 1)
             }
-        }
+        },
     },
 })
 
@@ -182,12 +185,14 @@ Vue.component('column_2', {
             <div class="column column_two">
                 <div class="card" v-for="card in column_2">
                 <h3>{{ card.name }}</h3>
-                    <div class="tasks" v-for="task in card.points"
+                    <ul class="tasks" v-for="task in card.points"
                         v-if="task.name != null"
                         @click="TaskCompleted(card, task)"
                         :class="{completed: task.completed}">
+                        <li >
                         {{ task.name }}
-                    </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -224,12 +229,15 @@ Vue.component('column_3', {
             <div class="column column_three">
                 <div class="card" v-for="card in column_3">
                 <h3>{{ card.name }}</h3>
-                    <div class="tasks" v-for="task in card.points"
+                    <ul class="tasks" v-for="task in card.points"
                         v-if="task.name != null"
                         @click="TaskCompleted(card, task)"
                         :class="{completed: task.completed}">
+                        <li>
                         {{ task.name }}
-                    </div>
+                        </li>
+                    </ul><br>
+                    
                         <p>{{ card.date }}</p>
                 </div>
             </div>
