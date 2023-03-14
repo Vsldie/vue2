@@ -114,7 +114,6 @@ Vue.component('newCard', {
                     {name: this.point_5, completed: false}
                 ],
                 date: null,
-                // date: null,
                 status: 0,
                 errors: [],
             }
@@ -134,6 +133,8 @@ Vue.component('column_1', {
     template: `
         <section id="main" class="main-alt">
             <div class="column column_one">
+            <p class="name_column">Начало</p>
+            <p>---------------------------------------------------------------</p>
                 <div class="card" v-for="card in column_1">
                 <h3>{{ card.name }}</h3>
                     <ul class="tasks" v-for="task in card.points"
@@ -187,6 +188,8 @@ Vue.component('column_2', {
     template: `
         <section id="main" class="main-alt">
             <div class="column column_two">
+            <p class="name_column">Ваш прогресс</p>
+            <p>---------------------------------------------------------------</p>
                 <div class="card" v-for="card in column_2">
                 <h3>{{ card.name }}</h3>
                     <ul class="tasks" v-for="task in card.points"
@@ -235,6 +238,8 @@ Vue.component('column_3', {
     template: `
         <section id="main" class="main-alt">
             <div class="column column_three">
+            <p class="name_column">Завершено</p>
+            <p>---------------------------------------------------------------</p>
                 <div class="card" v-for="card in column_3">
                 <h3>{{ card.name }}</h3>
                     <ul class="tasks" v-for="task in card.points"
