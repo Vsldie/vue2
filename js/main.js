@@ -63,6 +63,7 @@ Vue.component('component', {
 
         })
     },
+
     methods: {
         saveColumn_1(){
             localStorage.setItem('column_1', JSON.stringify(this.column_1));
