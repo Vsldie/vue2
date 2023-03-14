@@ -1,6 +1,6 @@
 let eventBus = new Vue()
 
-Vue.component('column', {
+Vue.component('component', {
     // колонки
     template: `
  
@@ -165,15 +165,19 @@ Vue.component('column_1', {
     },
     methods: {
         TaskCompleted(ColumnCard, task) {
-            task.completed = true
-            ColumnCard.status += 1
-            let count = 0
-            for(let i = 0; i < 2; i++){
-                count++
+            if (task.completed === false){
+                task.completed = true
+                ColumnCard.status += 1
             }
-            if ((ColumnCard.status / count) * 100 >= 100) {
+            let count = 0
+            for(let i = 0; i < 5; i++){
+                if(ColumnCard.points[i].name !== null){
+                    count++
+                }
+            }
+            if ((ColumnCard.status / count) * 100 >= 50) {
                 eventBus.$emit('addColumn_2', ColumnCard)
-                this.column_1.splice(this.column_1.indexOf(ColumnCard), 1)
+                this.column_1.splice(this.column_1.indexOf(ColumnCard), 0)
             }
         },
     },
@@ -207,11 +211,15 @@ Vue.component('column_2', {
     },
     methods: {
         TaskCompleted(ColumnCard, task) {
-            task.completed = true
-            ColumnCard.status += 1
+            if(task.completed === false){
+                task.completed = true
+                ColumnCard.status += 1
+            }
             let count = 0
-            for(let i = 0; i < 5; i++){
-                count++
+            for(let i = 0; i < 5; i++) {
+                if (ColumnCard.points[i].name !== null) {
+                    count++
+                }
             }
             if (( ColumnCard.status / count) * 100 >= 100 ) {
                 eventBus.$emit('addColumn_3', ColumnCard)

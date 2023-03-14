@@ -8,6 +8,7 @@ body {
     font-family:  Arial, Gadget, sans-serif;
     color:#282828;
     margin: 0px;
+    height: 2000px;
 
 }
 
@@ -22,7 +23,7 @@ body {
     float: left;
     width: 30%;
     padding: 10px;
-    height: 700px;
+    height: auto;
     font-size: 20pt;
     border: 0;
     background: white;
